@@ -25,15 +25,13 @@ const Home = () => {
       })
       .catch((error) => console.log(error));
   };
-  // console.log(currentWeather);
-  console.log(forecastWeather);
 
   return (
-    <div className="h-screen bg-zinc-800 font-mont  ">
-      <div className="w-5/12 mx-auto py-5 px-5">
+    <div className="h-full flex flex-col justify-between align-middle">
+      <div className="lg:w-5/12 sm:w-8/12 mx-auto mt-12">
         <Search onSearchChange={handleOnSearchChange} />
       </div>
-      <div className="flex justify-evenly items-start w-full mx-auto">
+      <div className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  ">
         <div className="w-6/12 flex justify-end items-start ">
           {currentWeather && <CurrentWeather data={currentWeather} />}
         </div>

@@ -11,7 +11,7 @@ const Search = (props: Props) => {
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      `${GEO_API_URL}/cities?minPopulation=500000&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then((response) => response.json())
@@ -35,7 +35,7 @@ const Search = (props: Props) => {
   return (
     <AsyncPaginate
       placeholder="find city"
-      debounceTimeout={600}
+      debounceTimeout={900}
       value={searchText}
       onChange={handleOnChange}
       loadOptions={loadOptions}

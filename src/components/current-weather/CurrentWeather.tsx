@@ -16,9 +16,8 @@ type Props = {
 };
 
 const CurrentWeather = (props: Props) => {
-  console.log(props);
   return (
-    <div className="w-9/12 rounded-md shadow-md  mr-5   my-5 p-5 bg-sky-700 text-white ">
+    <div className="w-9/12 rounded-md shadow-md  mr-5   p-5 bg-sky-700 text-white    transition-all duration-1000 ease-out    ">
       <div className="flex justify-between items-center ">
         <div>
           <p className="font-bold text-4xl leading-none mb-7 tracking-wider  ">

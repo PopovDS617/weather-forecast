@@ -1,14 +1,16 @@
-# usual:
+# Made with:
+
+- NextJS
+- Tailwind
+- GeoDB Cities API
+- OpenWeather API
+
+# to start:
+
+### create .env.local
+
+### add your API keys to .env.local
 
 ### npm install
 
 ### npm run dev
-
-
-# optional:
-
-### npm i -g npm-check-updates
-
-### ncu -u
-
-### npm install

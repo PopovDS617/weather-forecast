@@ -15,7 +15,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body className="h-screen bg-zinc-800 font-mont">
         <Main />
         <NextScript />
       </body>
