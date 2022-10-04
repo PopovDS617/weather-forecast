@@ -1,9 +1,16 @@
-export default function Home() {
+import React from 'react';
+import Search from '../components/search/Search';
+
+const Home = () => {
+  const handleOnSearchChange = (searchData) => {
+    console.log(searchData);
+  };
+
   return (
-    <div className="h-screen">
-      <main className="h-full flex justify-center items-center">
-        <h1 className="font-mono text-9xl">Hello there</h1>
-      </main>
+    <div className="h-screen bg-green-200  ">
+      <Search onSearchChange={handleOnSearchChange} />
     </div>
   );
-}
+};
+
+export default Home;
