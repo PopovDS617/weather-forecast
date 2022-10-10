@@ -11,7 +11,7 @@ const Search = (props: Props) => {
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=500000&namePrefix=${inputValue}`,
+      `${GEO_API_URL}/cities?minPopulation=50000&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then((response) => response.json())
