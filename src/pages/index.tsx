@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import CurrentWeather from '../components/current-weather/CurrentWeather';
 import Forecast from '../components/forecast/Forecast';
 import Search from '../components/search/Search';
+import Spinner from '../components/ui/Spinner';
 import { WEATHER_API_URL } from '../utils/weather-fetch-helpers';
 
 const Home = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecastWeather, setForecastWeather] = useState(null);
-  const [isLoading, setIsLoading]=useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSearchChange = (searchData) => {
-    setIsLoading(true)
+    setIsLoading(true);
     const [lat, lon] = searchData.value.split(' ');
     const currentWeatherFetch = fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=metric`
@@ -24,10 +25,9 @@ const Home = () => {
         const forecastResponse = await response[1].json();
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
         setForecastWeather({ city: searchData.label, ...forecastResponse });
-      setIsLoading(false)
+        setIsLoading(false);
       })
       .catch((error) => console.log(error));
-    
   };
 
   return (
@@ -35,16 +35,18 @@ const Home = () => {
       <div className="lg:w-5/12 sm:w-8/12 mx-auto mt-12">
         <Search onSearchChange={handleOnSearchChange} />
       </div>
-      {isLoading && (<p> Spinner </p>)}
+
+      {isLoading && <Spinner />}
       {!isLoading && (
-      <div className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  ">
-        <div className="w-6/12 flex justify-end items-start ">
-          {currentWeather && <CurrentWeather data={currentWeather} />}
+        <div className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  ">
+          <div className="w-6/12 flex justify-end items-start ">
+            {currentWeather && <CurrentWeather data={currentWeather} />}
+          </div>
+          <div className="w-6/12 flex justify-start items-start">
+            {forecastWeather && <Forecast data={forecastWeather} />}
+          </div>
         </div>
-        <div className="w-6/12 flex justify-start items-start">
-          {forecastWeather && <Forecast data={forecastWeather} />}
-        </div>
-      </div>)}
+      )}
     </div>
   );
 };
