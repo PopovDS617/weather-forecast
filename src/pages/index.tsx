@@ -37,26 +37,32 @@ const Home = () => {
         className="lg:w-5/12 sm:w-8/12 mx-auto mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
       >
         <Search onSearchChange={handleOnSearchChange} />
       </motion.div>
 
       {isLoading && <Spinner />}
       {!isLoading && (
-        <motion.div
-          className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  "
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-        >
-          <div className="w-6/12 flex justify-end items-start ">
+        <div className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  ">
+          <motion.div
+            className="w-6/12 flex justify-end items-start "
+            initial={{ opacity: 0, x: '-50' }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
             {currentWeather && <CurrentWeather data={currentWeather} />}
-          </div>
-          <div className="w-6/12 flex justify-start items-start">
+          </motion.div>
+          <motion.div
+            className="w-6/12 flex justify-start items-start"
+            key="1"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
             {forecastWeather && <Forecast data={forecastWeather} />}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       )}
     </div>
   );
