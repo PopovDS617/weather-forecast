@@ -56,7 +56,7 @@ const Forecast = (props: Props) => {
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel className="bg-sky-900 text-l my-2 ml-5 h-15 py-1 px-2 rounded-lg text-right  ">
-                <div className="w-12/12 mx-auto flex justify-evenly items-center flex-wrap ">
+                <div className="w-12/12 mx-auto flex justify-evenly items-center flex-wrap  ">
                   <div className="mx-1  ">
                     <span className="mx-1">feels like:</span>
                     <span>{`${Math.round(item.main.feels_like)} °C`}</span>

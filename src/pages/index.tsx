@@ -4,6 +4,7 @@ import Forecast from '../components/forecast/Forecast';
 import Search from '../components/search/Search';
 import Spinner from '../components/ui/Spinner';
 import { WEATHER_API_URL } from '../utils/weather-fetch-helpers';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -32,20 +33,30 @@ const Home = () => {
 
   return (
     <div className="h-full flex flex-col justify-between align-middle">
-      <div className="lg:w-5/12 sm:w-8/12 mx-auto mt-12">
+      <motion.div
+        className="lg:w-5/12 sm:w-8/12 mx-auto mt-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+      >
         <Search onSearchChange={handleOnSearchChange} />
-      </div>
+      </motion.div>
 
       {isLoading && <Spinner />}
       {!isLoading && (
-        <div className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  ">
+        <motion.div
+          className="flex  flex-col    lg:flex-row justify-evenly items-start w-full mx-auto my-12  "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
           <div className="w-6/12 flex justify-end items-start ">
             {currentWeather && <CurrentWeather data={currentWeather} />}
           </div>
           <div className="w-6/12 flex justify-start items-start">
             {forecastWeather && <Forecast data={forecastWeather} />}
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );
