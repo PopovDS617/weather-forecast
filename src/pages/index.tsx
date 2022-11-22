@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className="h-full flex flex-col justify-between align-middle">
       <motion.div
-        className="lg:w-5/12 sm:w-8/12 mx-auto mt-12"
+        className="lg:w-5/12 sm:w-9/12 mx-auto mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
