@@ -34,7 +34,7 @@ const Search = (props: Props) => {
 
   return (
     <AsyncPaginate
-      className="font-xl text-2xl"
+      className="font-xl text-2xl w-10/12"
       placeholder="find a city"
       debounceTimeout={900}
       value={searchText}
