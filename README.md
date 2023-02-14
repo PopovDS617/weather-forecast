@@ -1,16 +1,14 @@
-# Made with:
+ ## DEMO https://popov-forecast.vercel.app/
 
-- NextJS
-- Tailwind
-- GeoDB Cities API
-- OpenWeather API
 
-# to start:
+## Getting Started
+#### `1. npm install`
+#### `2. create .env.local`
+#### `3. add your API keys to .env.local`
+#### `4. npm run dev`
 
-### create .env.local
+<br>
 
-### add your API keys to .env.local
+## TO DO:
 
-### npm install
-
-### npm run dev
+to be added later 
